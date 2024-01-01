@@ -5,9 +5,10 @@ from parsers import (
     RoutesParser,
     EquipmentsParser,
 )
-from processing import graph
 from utils import read_file
 from pathlib import Path
+
+import networkx as nx
 
 current_path = Path(__file__).parent.absolute()
 
@@ -38,7 +39,11 @@ def main():
     routes = routes_parser.parse(routes_data)
     print()
 
-    # graph = graph.Graph(airlines, airports, alliances, equipment, routes)
+    routes_tuples = routes_parser.get_routes_tuples(routes)
+    graph = nx.Graph(routes_tuples)
+    Gcc = sorted(nx.connected_components(graph), key=len, reverse=True)
+    G0 = graph.subgraph(Gcc[0])
+    print(nx.diameter(G0))
 
 
 if __name__ == "__main__":

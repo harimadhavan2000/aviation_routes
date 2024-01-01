@@ -8,6 +8,12 @@ class RoutesParser:
             routes.append(Route(line))
         return routes
 
+    def get_routes_tuples(self, routes):
+        routes_tuples = []
+        for route in routes:
+            routes_tuples.append((route.source_airport, route.destination_airport))
+        return routes_tuples
+
 
 class Route:
     # airline	from	to	codeshare	stops	equipment
