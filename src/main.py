@@ -37,13 +37,16 @@ def main():
     alliances = alliances_parser.parse(alliances_data)
     equipment = equipment_parser.parse(equipment_data)
     routes = routes_parser.parse(routes_data)
-    print()
 
     routes_tuples = routes_parser.get_routes_tuples(routes)
     graph = nx.Graph(routes_tuples)
     Gcc = sorted(nx.connected_components(graph), key=len, reverse=True)
     G0 = graph.subgraph(Gcc[0])
-    print(nx.diameter(G0))
+    # diameter = nx.diameter(G0) = 13
+    n1, n2 = nx.periphery(G0)  # LPS PTJ
+    diameter_nodes = nx.shortest_path(G0, source=n1, target=n2)
+    for node in diameter_nodes:
+        print(airports_parser.get_airport_name_from_code(node, airports))
 
 
 if __name__ == "__main__":

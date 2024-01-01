@@ -8,6 +8,12 @@ class AirportsParser:
             airports.append(Airport(line))
         return airports
 
+    def get_airport_name_from_code(self, code, airports):
+        for airport in airports:
+            if airport.airport_id == code:
+                return airport.name
+        return None
+
 
 class Airport:
     # airport-id	latitude	longitude	airport-name
