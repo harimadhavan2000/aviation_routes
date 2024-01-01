@@ -6,6 +6,7 @@ class AirlinesParser:
         airlines = []
         for line in data:
             airlines.append(Airline(line))
+        return airlines
 
 
 class Airline:

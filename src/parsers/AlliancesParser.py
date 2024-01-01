@@ -6,6 +6,7 @@ class AlliancesParser:
         alliances = []
         for line in data:
             alliances.append(Alliance(line))
+        return alliances
 
 
 class Alliance:

@@ -36,6 +36,7 @@ def main():
     alliances = alliances_parser.parse(alliances_data)
     equipment = equipment_parser.parse(equipment_data)
     routes = routes_parser.parse(routes_data)
+    print()
 
     # graph = graph.Graph(airlines, airports, alliances, equipment, routes)
 

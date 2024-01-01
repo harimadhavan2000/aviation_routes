@@ -6,7 +6,6 @@ class AirportsParser:
         airports = []
         for line in data:
             airports.append(Airport(line))
-
         return airports
 
 

@@ -6,6 +6,7 @@ class EquipmentsParser:
         equipments = []
         for line in data:
             equipments.append(Equipment(line))
+        return equipments
 
 
 class Equipment:
