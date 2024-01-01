@@ -5,7 +5,7 @@ class AlliancesParser:
     def parse(self, data):
         alliances = []
         for line in data:
-            alliances.append(Alliance(**data))
+            alliances.append(Alliance(line))
 
 
 class Alliance:

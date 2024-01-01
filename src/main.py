@@ -1,9 +1,9 @@
-from .parsers import (
-    # al_parser,
+from parsers import (
+    AirlinesParser,
     AirportsParser,
-    # aln_parser,
-    # rt_parser,
-    # eq_parser,
+    AlliancesParser,
+    RoutesParser,
+    EquipmentsParser,
 )
 from processing import graph
 from utils import read_file
@@ -25,18 +25,17 @@ def main():
     equipment_data = read_file(equipment_data_path)
     routes_data = read_file(routes_data_path)
 
-    print(airports_data[0:10])
-    # airlines_parser = AirlinesParser(airlines_data)
-    airports_parser = AirportsParser.AirportsParser().parse(airports_data)
-    # alliances_parser = AlliancesParser(alliances_data)
-    # equipment_parser = EquipmentsParser(equipment_data)
-    # routes_parser = RoutesParser(routes_data)
+    airlines_parser = AirlinesParser.AirlinesParser()
+    airports_parser = AirportsParser.AirportsParser()
+    alliances_parser = AlliancesParser.AlliancesParser()
+    equipment_parser = EquipmentsParser.EquipmentsParser()
+    routes_parser = RoutesParser.RoutesParser()
 
-    # airlines = airlines_parser.parse()
-    # airports = airports_parser.parse()
-    # alliances = alliances_parser.parse()
-    # equipment = equipment_parser.parse()
-    # routes = routes_parser.parse()
+    airlines = airlines_parser.parse(airlines_data)
+    airports = airports_parser.parse(airports_data)
+    alliances = alliances_parser.parse(alliances_data)
+    equipment = equipment_parser.parse(equipment_data)
+    routes = routes_parser.parse(routes_data)
 
     # graph = graph.Graph(airlines, airports, alliances, equipment, routes)
 

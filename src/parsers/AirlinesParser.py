@@ -5,7 +5,7 @@ class AirlinesParser:
     def parse(self, data):
         airlines = []
         for line in data:
-            airlines.append(Airline(**data))
+            airlines.append(Airline(line))
 
 
 class Airline:

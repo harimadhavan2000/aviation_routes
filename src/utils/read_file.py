@@ -8,5 +8,5 @@ def read_file(path):
     with open(path, "r") as file:
         data = file.readlines()
     # this is a list of tsv strings with newlines handle this.
-    data = [line.strip() for line in data]
-    return data
+    data = [line.strip().split("\t") for line in data]
+    return data[1:]

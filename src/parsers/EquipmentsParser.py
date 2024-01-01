@@ -5,7 +5,7 @@ class EquipmentsParser:
     def parse(self, data):
         equipments = []
         for line in data:
-            equipments.append(Equipment(**data))
+            equipments.append(Equipment(line))
 
 
 class Equipment:

@@ -5,12 +5,13 @@ class RoutesParser:
     def parse(self, data):
         routes = []
         for line in data:
-            routes.append(Route(**data))
+            routes.append(Route(line))
 
 
 class Route:
     # airline	from	to	codeshare	stops	equipment
     def __init__(self, data):
+        print(data)
         self.airline = data[0]
         self.source_airport = data[1]
         self.destination_airport = data[2]

@@ -5,7 +5,7 @@ class AirportsParser:
     def parse(self, data):
         airports = []
         for line in data:
-            airports.append(Airport(**data))
+            airports.append(Airport(line))
 
         return airports
 
